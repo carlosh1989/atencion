@@ -326,7 +326,6 @@ class SolicitudesFundacion
         $solicitud->fecha_hora_asignado_consignado = Carbon::now();
         $solicitud->estatus = 1;
         $solicitud->role = $user['role'];
-        $solicitud->organismo = $user['organismo_id'];
         $solicitud->save();
 
         //AGREGANDO BENEFICIARIO DE TENERLO

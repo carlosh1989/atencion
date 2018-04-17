@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="<?php echo baseUrl ?>assets/bower/pickadate/lib/themes/default.date.css">
     <link rel="stylesheet" href="<?php echo baseUrl ?>assets/bower/pickadate/lib/themes/default.time.css">
     <script src="<?php echo baseUrl ?>assets/bower/bootstrap-table/dist/bootstrap-table.min.js"></script>
-    <script src="<?php echo baseUrl ?>assets/bower/jquery/dist/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
     <script src="<?php echo baseUrl ?>assets/bower/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="<?php echo baseUrl ?>assets/bower/jasny-bootstrap/dist/js/jasny-bootstrap.min.js"></script>
     <script src="<?php echo baseUrl ?>assets/bower/inputmask/dist/jquery.inputmask.bundle.js"></script>
@@ -129,18 +129,13 @@
                 </ul>
               </li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a class="text-danger" href="#" id="" data-toggle="collapse" data-target="#reportesMenu" aria-expanded="false"><i class="fa fa-clipboard"></i> REPORTES</a>
-                <ul class="nav collapse" id="reportesMenu" role="menu" aria-labelledby="btn-1">
-                  <li><a class="text-danger" href="<?php echo baseUrl ?>admin/reportes/abiertasPDF2"><i class="fa fa-unlock"></i> DIARIO</a></li>
-<!--              <li><a class="text-danger" href="<?php echo baseUrl ?>admin/consultas/cerradas"><i class="fa fa-lock"></i> MENSUAL</a></li>
-                  <li><a class="text-danger" href="<?php echo baseUrl ?>admin/consultas/aprobadas"><i class="fa fa-check-square"></i> ANUAL</a></li> -->
+                <ul class="nav navbar-nav">
+                  <li class="active"><a class="text-danger" href="<?php echo baseUrl ?>admin/reportes/abiertasPDF2"><i class="fa fa-file-pdf-o"></i> REPORTE</a></li>
+                </ul>
+       
                 </ul>
               </li>
-            </ul>
-            <ul class="nav navbar-nav">
-              <li class="active"><a class="text-danger" class="text-danger" href="<?php echo baseUrl ?>admin/estadisticas"><i class="fa fa-area-chart"></i> ESTADISTICAS</a></li>
-            </ul>
+            </ul> 
             </div><!--/.nav-collapse -->
           </div>
         </nav>

@@ -31,57 +31,13 @@ class Solicitudes
         $usuario = Session::get('current_user');
         $organismo_id = $usuario['organismo_id']; 
 
-        if(isset($municipio_id) and $municipio_id and isset($parroquia_id) and $parroquia_id)
-        {
-            if(isset($tipo) and $tipo)
-            {
                 $solicitudes = Solicitud::orderBy('id', 'DESC')
-                ->where('tipo_solicitud_id',$tipo)
-                ->where('municipio_id',$municipio_id)
-                ->where('parroquia_id',$parroquia_id)
-                ->where('organismo_id',$organismo_id)
                 ->where('estatus',1)
                 ->get();
-                $tipo_seleccion = Tipo::find($tipo);
-                $municipio_seleccion = $municipio_id;
-                $parroquia_seleccion = $parroquia_id;
-            }
-            else
-            {
-                $solicitudes = Solicitud::orderBy('id', 'DESC')
-                ->where('municipio_id',$municipio_id)
-                ->where('parroquia_id',$parroquia_id)
-                ->where('organismo_id',$organismo_id)
-                ->where('estatus',1)
-                ->get();
-                $tipo_seleccion = "";
-                $municipio_seleccion = $municipio_id;
-                $parroquia_seleccion = $parroquia_id;
-            }
-        }
-        else
-        {
-            if(isset($tipo) and $tipo)
-            {
-                $solicitudes = Solicitud::orderBy('id', 'DESC')
-                ->where('organismo_id',$organismo_id)
-                ->where('estatus',1)
-                ->get();
-                $tipo_seleccion = Tipo::find($tipo);
-                $municipio_seleccion = "";
-                $parroquia_seleccion = "";
-            }
-            else
-            {
-                $solicitudes = Solicitud::orderBy('id', 'DESC')
-                ->where('organismo_id',$organismo_id)
-                ->where('estatus',1)
-                ->get();
+
                 $tipo_seleccion = "";
                 $municipio_seleccion = "";
                 $parroquia_seleccion = "";
-            }
-        }
 
         
         $tipos = Tipo::all();
@@ -326,7 +282,6 @@ class Solicitudes
         $solicitud->fecha_hora_asignado_consignado = Carbon::now();
         $solicitud->estatus = 1;
         $solicitud->role = $user['role'];
-        $solicitud->organismo = $user['organismo_id'];
         $solicitud->save();
 
         //AGREGANDO BENEFICIARIO DE TENERLO

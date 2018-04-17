@@ -10,10 +10,7 @@
           <?php echo Token() ?>
           <div class="col-lg-12">
             <div class="col-lg-4">
-              <input class="form-control" type="text" name="name" placeholder="NOMBRE">
-            </div>
-            <div class="col-lg-4">
-              <input class="form-control" type="text" name="email" placeholder="EMAIL">
+              <input class="form-control" type="text" name="name" placeholder="NOMBRE Y APELLIDO">
             </div>
             <div class="col-lg-4">
               <select name="role" class="form-control" name="role" id="">
@@ -23,20 +20,6 @@
                 <option value="fundacion">FUNDACION</option>
               </select>
             </div>
-          </div>
-        </div>
-      </div>
-      <br>
-      <div class="row">
-        <div class="col-lg-12">
-          <?php echo Token::field() ?>
-          <div class="col-lg-12">
-            <div class="col-lg-4">
-              <input id="password" name="password" type="password" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'tiene que tener minimo 6 caracteres.' : ''); if(this.checkValidity()) form.password_two.pattern = this.value;" placeholder="CLAVE" required>
-            </div>
-            <div class="col-lg-4">
-              <input id="password_two" name="password_two" type="password" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'La clave no coinciden.' : '');" placeholder="VERIFICAR CLAVE" required>
-            </div>
             <div class="col-lg-4">
               <select id="municipioSelect" class="form-control" name="organismo_id" required/>
                 <option value="">ORGANISMOS</option>
@@ -45,6 +28,25 @@
                 <?php endforeach ?>
               </select>
             </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <h4 class="text-muted text-center">DATOS DE ACCESO</h4>
+      <div class="row">
+        <div class="col-lg-12">
+          <?php echo Token::field() ?>
+          <div class="col-lg-12">
+            <div class="col-lg-4">
+              <input class="form-control" type="text" name="email" placeholder="USUARIO">
+            </div>
+            <div class="col-lg-4">
+              <input id="password" name="password" type="password" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'tiene que tener minimo 6 caracteres.' : ''); if(this.checkValidity()) form.password_two.pattern = this.value;" placeholder="CLAVE" required>
+            </div>
+            <div class="col-lg-4">
+              <input id="password_two" name="password_two" type="password" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'La clave no coinciden.' : '');" placeholder="VERIFICAR CLAVE" required>
+            </div>
+
             <br>
             <br>
             <button class="btn btn-danger pull-right" type="submit"><i class="fa fa-save fa-2x"></i></button>

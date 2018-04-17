@@ -91,7 +91,7 @@ class Session
      */
     public function getSessionId()
     {
-        return $_SESSION['session_id'];
+        return $_SESSION['current_user'];
     }
 
     /**

@@ -8,7 +8,7 @@
       <table class="table table-striped table-condensed animated fadeIn" data-striped="true">
         <thead>
           <tr>
-            <th width="" class="text-uppercase">Nombre</th>
+            <th width="" class="text-uppercase">USUARIO</th>
             <th width="" class="text-uppercase">Role</th>
             <th width="" class="text-uppercase">Organismo</th>
             <th width="" class="text-uppercase">Creado</th>

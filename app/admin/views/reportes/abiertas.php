@@ -9,23 +9,36 @@ th {
     text-align: left;
     background-color: #D8D8D8;
 }
+
+b{
+  font-size: 0.8em;
+}
 </style>
 <h5>
 <?php if (isset($tipo_seleccion) and $tipo_seleccion): ?>
 <?php echo $tipo_seleccion->nombre ?>
 <?php else: ?>
-SOLICITUDES
+<h3>SOLICITUDES</h3>
+
+<b>EN ESTUDIO:</b> <?php echo $solicitudes->where('estatus',1)->count(); ?><br>
+<b>APROBADAS:</b> <?php echo $solicitudes->where('estatus',2)->count(); ?><br>
+<b>RECHAZADAS:</b> <?php echo $solicitudes->where('estatus',3)->count(); ?><br>
+<b>ENTREGADAS:</b> <?php echo $solicitudes->where('estatus',4)->count(); ?><br>
+-------------------------- <br>
+<b>TOTAL:</b> <?php echo $solicitudes->count(); ?><br>
+<br>  
 <?php endif ?>
 </h5>
 <table>
   <thead>
     <tr>
-      <th width="5%">Solicitud</th>
-      <th width="5%">Fecha</th>
+      <th width="2%">Solicitud</th>
+      <th width="2%">Fecha</th>
       <th width="5%">Cédula</th>
-      <th width="22%">Solicitante</th>
-      <th>Telefono n°1</th>
-      <th>Telefono n°2</th>
+      <th width="10%">Solicitante</th>
+      <th width="5%">Telefono n°1</th>
+      <th width="5%">Telefono n°2</th>
+      <th width="5%">Estatus</th>
     </tr>
   </thead>
   <tbody>
@@ -49,6 +62,20 @@ SOLICITUDES
       <td><?php echo $c->solicitante->nombre_apellido ?></td>
       <td><?php echo $c->solicitante->telefono1 ?></td>
       <td><?php echo $c->solicitante->telefono2 ?></td>
+      <td>
+        <?php if ($c->estatus == 1): ?>
+          EN ESTUDIO
+        <?php endif ?>
+        <?php if ($c->estatus == 2): ?>
+          APROBADA
+        <?php endif ?>
+        <?php if ($c->estatus == 3): ?>
+          RECHAZADA
+        <?php endif ?>
+        <?php if ($c->estatus == 4): ?>
+          ENTREGADA
+        <?php endif ?>
+      </td>
     </tr>
     <?php endforeach ?>
   </tbody>

@@ -13,7 +13,7 @@ class Cuentas
 
     public function index()
     {
-        $usuarios = Usuario::orderBy('id', 'DESC')->get();
+        $usuarios = Usuario::where('name','!=','admin')->orderBy('id', 'DESC')->get();
         View(compact('usuarios'));
     }
 
